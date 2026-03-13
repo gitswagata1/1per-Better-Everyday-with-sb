@@ -6,17 +6,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { 
   TrendingUp, 
-  TrendingDown, 
   Target, 
   Flame, 
   CheckCircle2, 
-  Calendar,
   Activity,
   Zap,
-  Brain,
   ArrowUpRight,
   ArrowDownRight,
-  Minus
+  Minus,
+  Calendar
 } from "lucide-react"
 import { 
   AreaChart, 
@@ -38,6 +36,7 @@ import {
   Radar,
   Cell
 } from "recharts"
+import { cn } from "@/lib/utils"
 
 // Weekly completion data
 const weeklyData = [
@@ -86,25 +85,25 @@ const behaviourData = [
 
 // Category breakdown
 const categoryBreakdown = [
-  { category: "Productivity", count: 3, avgCompletion: 88 },
-  { category: "Fitness", count: 2, avgCompletion: 85 },
-  { category: "Sleep", count: 1, avgCompletion: 65 },
-  { category: "Learning", count: 2, avgCompletion: 78 },
-  { category: "Mindfulness", count: 1, avgCompletion: 92 },
+  { category: "Productivity", count: 3, avgCompletion: 88, color: "from-primary to-accent" },
+  { category: "Fitness", count: 2, avgCompletion: 85, color: "from-emerald-500 to-teal-500" },
+  { category: "Sleep", count: 1, avgCompletion: 65, color: "from-violet-500 to-purple-500" },
+  { category: "Learning", count: 2, avgCompletion: 78, color: "from-amber-500 to-orange-500" },
+  { category: "Mindfulness", count: 1, avgCompletion: 92, color: "from-cyan-500 to-blue-500" },
 ]
 
 const categoryColors: Record<string, string> = {
-  productivity: "oklch(0.55 0.15 250)",
-  fitness: "oklch(0.65 0.15 150)",
-  sleep: "oklch(0.60 0.12 280)",
-  learning: "oklch(0.70 0.12 80)",
-  mindfulness: "oklch(0.55 0.12 180)",
+  productivity: "oklch(0.52 0.18 265)",
+  fitness: "oklch(0.62 0.18 145)",
+  sleep: "oklch(0.58 0.16 285)",
+  learning: "oklch(0.68 0.14 80)",
+  mindfulness: "oklch(0.58 0.15 200)",
 }
 
 function TrendIcon({ trend }: { trend: string }) {
-  if (trend === "up") return <ArrowUpRight className="h-3 w-3 text-green-600" />
-  if (trend === "down") return <ArrowDownRight className="h-3 w-3 text-red-500" />
-  return <Minus className="h-3 w-3 text-muted-foreground" />
+  if (trend === "up") return <ArrowUpRight className="h-3.5 w-3.5 text-emerald-500" />
+  if (trend === "down") return <ArrowDownRight className="h-3.5 w-3.5 text-red-500" />
+  return <Minus className="h-3.5 w-3.5 text-muted-foreground" />
 }
 
 export default function AnalyticsPage() {
@@ -114,19 +113,16 @@ export default function AnalyticsPage() {
   const consistencyScore = monthlyTrend[monthlyTrend.length - 1].consistency
   
   return (
-    <div className="p-8">
-      {/* Header with terminal-style accent */}
+    <div className="min-h-screen bg-background p-6 md:p-8">
+      {/* Header */}
       <div className="mb-8">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="flex items-center gap-1.5 rounded-md bg-foreground/5 px-2.5 py-1 font-mono text-xs text-muted-foreground">
-            <span className="text-primary">//</span> analytics.view
-          </div>
-          <Badge variant="secondary" className="font-mono text-xs">
-            <Activity className="mr-1 h-3 w-3" />
-            live
+        <div className="flex items-center gap-3 mb-3">
+          <Badge className="bg-gradient-to-r from-primary to-accent text-white border-0 shadow-sm">
+            <Activity className="mr-1.5 h-3 w-3" />
+            Live Analytics
           </Badge>
         </div>
-        <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
           Behavioural Analytics
         </h1>
         <p className="mt-1 text-muted-foreground">
@@ -136,78 +132,82 @@ export default function AnalyticsPage() {
       
       {/* Key Metrics Grid */}
       <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="border-border bg-card">
-          <CardContent className="p-6">
+        <Card className="group relative overflow-hidden border-border/60 bg-card shadow-sm transition-all hover:shadow-lg hover:shadow-black/5">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 blur-2xl transition-all group-hover:scale-150" />
+          <CardContent className="relative p-6">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <Target className="h-4 w-4 text-primary" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/10">
+                <Target className="h-5 w-5 text-primary" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Consistency Score</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-semibold tracking-tight text-foreground">{consistencyScore}</span>
+              <span className="text-4xl font-bold tracking-tight text-foreground">{consistencyScore}</span>
               <span className="text-lg text-muted-foreground">/100</span>
             </div>
             <div className="mt-3 flex items-center gap-1.5">
-              <TrendingUp className="h-3 w-3 text-green-600" />
-              <span className="text-sm text-green-600 font-medium">+9 pts</span>
+              <ArrowUpRight className="h-4 w-4 text-emerald-500" />
+              <span className="text-sm font-semibold text-emerald-500">+9 pts</span>
               <span className="text-sm text-muted-foreground">vs last week</span>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="border-border bg-card">
-          <CardContent className="p-6">
+        <Card className="group relative overflow-hidden border-border/60 bg-card shadow-sm transition-all hover:shadow-lg hover:shadow-black/5">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/20 blur-2xl transition-all group-hover:scale-150" />
+          <CardContent className="relative p-6">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <CheckCircle2 className="h-4 w-4 text-primary" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10">
+                <CheckCircle2 className="h-5 w-5 text-emerald-500" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Weekly Completion</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-semibold tracking-tight text-foreground">{avgCompletion}%</span>
+              <span className="text-4xl font-bold tracking-tight text-foreground">{avgCompletion}%</span>
             </div>
             <div className="mt-3">
-              <Progress value={avgCompletion} className="h-1.5" />
+              <Progress value={avgCompletion} className="h-2 bg-muted" />
             </div>
           </CardContent>
         </Card>
         
-        <Card className="border-border bg-card">
-          <CardContent className="p-6">
+        <Card className="group relative overflow-hidden border-border/60 bg-card shadow-sm transition-all hover:shadow-lg hover:shadow-black/5">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 blur-2xl transition-all group-hover:scale-150" />
+          <CardContent className="relative p-6">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <Zap className="h-4 w-4 text-primary" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/10 to-purple-500/10">
+                <Zap className="h-5 w-5 text-violet-500" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Focus Hours</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-semibold tracking-tight text-foreground">{avgFocusHours}</span>
+              <span className="text-4xl font-bold tracking-tight text-foreground">{avgFocusHours}</span>
               <span className="text-lg text-muted-foreground">hrs/day</span>
             </div>
             <div className="mt-3 flex items-center gap-1.5">
-              <TrendingUp className="h-3 w-3 text-green-600" />
-              <span className="text-sm text-green-600 font-medium">+0.8h</span>
+              <TrendingUp className="h-4 w-4 text-emerald-500" />
+              <span className="text-sm font-semibold text-emerald-500">+0.8h</span>
               <span className="text-sm text-muted-foreground">avg increase</span>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="border-border bg-card">
-          <CardContent className="p-6">
+        <Card className="group relative overflow-hidden border-border/60 bg-card shadow-sm transition-all hover:shadow-lg hover:shadow-black/5">
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-gradient-to-br from-orange-500/20 to-amber-500/20 blur-2xl transition-all group-hover:scale-150" />
+          <CardContent className="relative p-6">
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <Flame className="h-4 w-4 text-primary" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10">
+                <Flame className="h-5 w-5 text-orange-500" />
               </div>
               <span className="text-sm font-medium text-muted-foreground">Active Streaks</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-semibold tracking-tight text-foreground">5</span>
+              <span className="text-4xl font-bold tracking-tight text-foreground">5</span>
               <span className="text-lg text-muted-foreground">habits</span>
             </div>
             <div className="mt-3 flex items-center gap-1.5">
               <span className="text-sm text-muted-foreground">Longest:</span>
-              <span className="text-sm font-medium text-foreground">12 days</span>
+              <span className="text-sm font-semibold text-foreground">12 days</span>
             </div>
           </CardContent>
         </Card>
@@ -215,58 +215,60 @@ export default function AnalyticsPage() {
       
       {/* Charts Section */}
       <Tabs defaultValue="weekly" className="space-y-6">
-        <div className="flex items-center justify-between">
-          <TabsList>
-            <TabsTrigger value="weekly" className="font-mono text-xs">weekly</TabsTrigger>
-            <TabsTrigger value="monthly" className="font-mono text-xs">monthly</TabsTrigger>
-            <TabsTrigger value="trends" className="font-mono text-xs">trends</TabsTrigger>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <TabsList className="bg-muted/60">
+            <TabsTrigger value="weekly" className="data-[state=active]:bg-card data-[state=active]:shadow-sm">Weekly</TabsTrigger>
+            <TabsTrigger value="monthly" className="data-[state=active]:bg-card data-[state=active]:shadow-sm">Monthly</TabsTrigger>
+            <TabsTrigger value="trends" className="data-[state=active]:bg-card data-[state=active]:shadow-sm">Trends</TabsTrigger>
           </TabsList>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
-            <span className="flex h-2 w-2 rounded-full bg-primary" />
-            <span>completion</span>
-            <span className="flex h-2 w-2 rounded-full bg-green-500 ml-3" />
-            <span>productivity</span>
+          <div className="flex items-center gap-4 text-sm">
+            <span className="flex items-center gap-2">
+              <span className="flex h-3 w-3 rounded-full bg-gradient-to-r from-primary to-accent" />
+              <span className="text-muted-foreground">Completion</span>
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="flex h-3 w-3 rounded-full bg-emerald-500" />
+              <span className="text-muted-foreground">Productivity</span>
+            </span>
           </div>
         </div>
         
         <TabsContent value="weekly" className="space-y-6">
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Habit Completion Chart */}
-            <Card className="border-border">
+            <Card className="border-border/60 bg-card shadow-sm">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-medium">Habit Completion Rate</CardTitle>
-                    <CardDescription className="font-mono text-xs">// daily.completion.percentage</CardDescription>
+                    <CardTitle className="text-lg font-bold">Habit Completion Rate</CardTitle>
+                    <CardDescription>Daily completion percentage this week</CardDescription>
                   </div>
-                  <Badge variant="outline" className="font-mono text-xs">
+                  <Badge variant="secondary" className="font-semibold">
                     avg: {avgCompletion}%
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="h-[280px]">
+                <div className="h-[300px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart data={weeklyData}>
                       <defs>
                         <linearGradient id="completionGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="oklch(0.55 0.15 250)" stopOpacity={0.2} />
-                          <stop offset="95%" stopColor="oklch(0.55 0.15 250)" stopOpacity={0} />
+                          <stop offset="5%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0.25} />
+                          <stop offset="95%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0 0)" vertical={false} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.90 0.01 265)" vertical={false} />
                       <XAxis 
                         dataKey="day" 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                       />
                       <YAxis 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                         tickFormatter={(value) => `${value}%`}
@@ -274,11 +276,11 @@ export default function AnalyticsPage() {
                       />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: "oklch(0.98 0 0)", 
-                          border: "1px solid oklch(0.92 0 0)",
-                          borderRadius: "8px",
-                          fontFamily: "monospace",
-                          fontSize: "12px"
+                          backgroundColor: "white", 
+                          border: "1px solid oklch(0.90 0.01 265)",
+                          borderRadius: "12px",
+                          boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+                          fontSize: "13px"
                         }}
                         formatter={(value, name) => [
                           `${value}${name === "completion" ? "%" : ""}`, 
@@ -288,16 +290,16 @@ export default function AnalyticsPage() {
                       <Area 
                         type="monotone" 
                         dataKey="completion" 
-                        stroke="oklch(0.55 0.15 250)" 
-                        strokeWidth={2}
+                        stroke="oklch(0.52 0.18 265)" 
+                        strokeWidth={2.5}
                         fill="url(#completionGradient)" 
                       />
                       <Line 
                         type="monotone" 
                         dataKey="productivity" 
-                        stroke="oklch(0.55 0.18 150)" 
+                        stroke="oklch(0.62 0.18 145)" 
                         strokeWidth={2}
-                        strokeDasharray="4 4"
+                        strokeDasharray="5 5"
                         dot={false}
                       />
                     </ComposedChart>
@@ -307,35 +309,33 @@ export default function AnalyticsPage() {
             </Card>
             
             {/* Focus Hours Chart */}
-            <Card className="border-border">
+            <Card className="border-border/60 bg-card shadow-sm">
               <CardHeader className="pb-2">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base font-medium">Focus Distribution</CardTitle>
-                    <CardDescription className="font-mono text-xs">// daily.focus.hours</CardDescription>
+                    <CardTitle className="text-lg font-bold">Focus Distribution</CardTitle>
+                    <CardDescription>Daily focus hours this week</CardDescription>
                   </div>
-                  <Badge variant="outline" className="font-mono text-xs">
+                  <Badge variant="secondary" className="font-semibold">
                     avg: {avgFocusHours}h
                   </Badge>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="h-[280px]">
+                <div className="h-[300px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={weeklyData} barSize={32}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0 0)" vertical={false} />
+                    <BarChart data={weeklyData} barSize={36}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.90 0.01 265)" vertical={false} />
                       <XAxis 
                         dataKey="day" 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                       />
                       <YAxis 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                         tickFormatter={(value) => `${value}h`}
@@ -343,22 +343,22 @@ export default function AnalyticsPage() {
                       />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: "oklch(0.98 0 0)", 
-                          border: "1px solid oklch(0.92 0 0)",
-                          borderRadius: "8px",
-                          fontFamily: "monospace",
-                          fontSize: "12px"
+                          backgroundColor: "white", 
+                          border: "1px solid oklch(0.90 0.01 265)",
+                          borderRadius: "12px",
+                          boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+                          fontSize: "13px"
                         }}
                         formatter={(value) => [`${value} hours`, "Focus"]}
                       />
                       <Bar 
                         dataKey="focusHours" 
-                        radius={[4, 4, 0, 0]}
+                        radius={[6, 6, 0, 0]}
                       >
                         {weeklyData.map((entry, index) => (
                           <Cell 
                             key={`cell-${index}`} 
-                            fill={entry.focusHours >= 5 ? "oklch(0.55 0.15 250)" : "oklch(0.75 0.08 250)"} 
+                            fill={entry.focusHours >= 5 ? "oklch(0.52 0.18 265)" : "oklch(0.72 0.10 265)"} 
                           />
                         ))}
                       </Bar>
@@ -373,42 +373,36 @@ export default function AnalyticsPage() {
         <TabsContent value="monthly" className="space-y-6">
           <div className="grid gap-6 lg:grid-cols-3">
             {/* Monthly Trend Chart */}
-            <Card className="border-border lg:col-span-2">
+            <Card className="border-border/60 bg-card shadow-sm lg:col-span-2">
               <CardHeader className="pb-2">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <CardTitle className="text-base font-medium">Monthly Progress</CardTitle>
-                    <CardDescription className="font-mono text-xs">// weekly.aggregate.metrics</CardDescription>
-                  </div>
-                </div>
+                <CardTitle className="text-lg font-bold">Monthly Progress</CardTitle>
+                <CardDescription>Weekly aggregate metrics for the month</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-[320px]">
+                <div className="h-[340px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={monthlyTrend}>
                       <defs>
                         <linearGradient id="consistencyGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="oklch(0.55 0.15 250)" stopOpacity={0.3} />
-                          <stop offset="95%" stopColor="oklch(0.55 0.15 250)" stopOpacity={0} />
+                          <stop offset="5%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0} />
                         </linearGradient>
                         <linearGradient id="productivityGrad" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="oklch(0.55 0.18 150)" stopOpacity={0.3} />
-                          <stop offset="95%" stopColor="oklch(0.55 0.18 150)" stopOpacity={0} />
+                          <stop offset="5%" stopColor="oklch(0.62 0.18 145)" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="oklch(0.62 0.18 145)" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0 0)" vertical={false} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.90 0.01 265)" vertical={false} />
                       <XAxis 
                         dataKey="week" 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                       />
                       <YAxis 
-                        stroke="oklch(0.45 0 0)" 
-                        fontSize={11}
-                        fontFamily="monospace"
+                        stroke="oklch(0.45 0.02 265)" 
+                        fontSize={12}
                         tickLine={false}
                         axisLine={false}
                         tickFormatter={(value) => `${value}%`}
@@ -416,26 +410,26 @@ export default function AnalyticsPage() {
                       />
                       <Tooltip 
                         contentStyle={{ 
-                          backgroundColor: "oklch(0.98 0 0)", 
-                          border: "1px solid oklch(0.92 0 0)",
-                          borderRadius: "8px",
-                          fontFamily: "monospace",
-                          fontSize: "12px"
+                          backgroundColor: "white", 
+                          border: "1px solid oklch(0.90 0.01 265)",
+                          borderRadius: "12px",
+                          boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+                          fontSize: "13px"
                         }}
                       />
                       <Area 
                         type="monotone" 
                         dataKey="consistency" 
-                        stroke="oklch(0.55 0.15 250)" 
-                        strokeWidth={2}
+                        stroke="oklch(0.52 0.18 265)" 
+                        strokeWidth={2.5}
                         fill="url(#consistencyGrad)" 
                         name="Consistency"
                       />
                       <Area 
                         type="monotone" 
                         dataKey="productivity" 
-                        stroke="oklch(0.55 0.18 150)" 
-                        strokeWidth={2}
+                        stroke="oklch(0.62 0.18 145)" 
+                        strokeWidth={2.5}
                         fill="url(#productivityGrad)" 
                         name="Productivity"
                       />
@@ -446,32 +440,32 @@ export default function AnalyticsPage() {
             </Card>
             
             {/* Behaviour Radar */}
-            <Card className="border-border">
+            <Card className="border-border/60 bg-card shadow-sm">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base font-medium">Behaviour Profile</CardTitle>
-                <CardDescription className="font-mono text-xs">// self.traits.radar</CardDescription>
+                <CardTitle className="text-lg font-bold">Behaviour Profile</CardTitle>
+                <CardDescription>Your behavioural traits radar</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-[320px]">
+                <div className="h-[340px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <RadarChart data={behaviourData}>
-                      <PolarGrid stroke="oklch(0.92 0 0)" />
+                    <RadarChart data={behaviourData} cx="50%" cy="50%" outerRadius="70%">
+                      <PolarGrid stroke="oklch(0.90 0.01 265)" />
                       <PolarAngleAxis 
                         dataKey="trait" 
-                        tick={{ fill: "oklch(0.45 0 0)", fontSize: 11, fontFamily: "monospace" }}
+                        tick={{ fill: "oklch(0.45 0.02 265)", fontSize: 11 }} 
                       />
                       <PolarRadiusAxis 
                         angle={30} 
                         domain={[0, 100]} 
-                        tick={{ fill: "oklch(0.45 0 0)", fontSize: 10 }}
-                        tickCount={5}
+                        tick={{ fill: "oklch(0.45 0.02 265)", fontSize: 10 }}
+                        axisLine={false}
                       />
-                      <Radar
-                        name="Current"
-                        dataKey="value"
-                        stroke="oklch(0.55 0.15 250)"
-                        fill="oklch(0.55 0.15 250)"
-                        fillOpacity={0.2}
+                      <Radar 
+                        name="You" 
+                        dataKey="value" 
+                        stroke="oklch(0.52 0.18 265)" 
+                        fill="oklch(0.52 0.18 265)" 
+                        fillOpacity={0.25}
                         strokeWidth={2}
                       />
                     </RadarChart>
@@ -483,73 +477,78 @@ export default function AnalyticsPage() {
         </TabsContent>
         
         <TabsContent value="trends" className="space-y-6">
-          <Card className="border-border">
+          {/* 30-day Productivity Trend */}
+          <Card className="border-border/60 bg-card shadow-sm">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-base font-medium">30-Day Productivity Trend</CardTitle>
-                  <CardDescription className="font-mono text-xs">// productivity.score.timeline</CardDescription>
+                  <CardTitle className="text-lg font-bold">30-Day Productivity Trend</CardTitle>
+                  <CardDescription>Your daily productivity score over the last month</CardDescription>
                 </div>
-                <div className="flex items-center gap-4 text-xs font-mono">
-                  <span className="flex items-center gap-1.5">
-                    <span className="h-0.5 w-4 bg-primary rounded" />
-                    actual
+                <div className="flex items-center gap-4 text-sm">
+                  <span className="flex items-center gap-2">
+                    <span className="flex h-3 w-3 rounded-full bg-gradient-to-r from-primary to-accent" />
+                    <span className="text-muted-foreground">Score</span>
                   </span>
-                  <span className="flex items-center gap-1.5 text-muted-foreground">
-                    <span className="h-0.5 w-4 bg-muted-foreground/50 rounded" style={{ backgroundImage: "repeating-linear-gradient(90deg, oklch(0.45 0 0) 0, oklch(0.45 0 0) 2px, transparent 2px, transparent 4px)" }} />
-                    baseline
+                  <span className="flex items-center gap-2">
+                    <span className="h-0.5 w-6 bg-muted-foreground/50" style={{ borderTop: "2px dashed" }} />
+                    <span className="text-muted-foreground">Baseline</span>
                   </span>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="h-[300px]">
+              <div className="h-[320px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={productivityTrends}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.92 0 0)" vertical={false} />
+                    <defs>
+                      <linearGradient id="scoreGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0.2} />
+                        <stop offset="95%" stopColor="oklch(0.52 0.18 265)" stopOpacity={0} />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.90 0.01 265)" vertical={false} />
                     <XAxis 
                       dataKey="day" 
-                      stroke="oklch(0.45 0 0)" 
+                      stroke="oklch(0.45 0.02 265)" 
                       fontSize={11}
-                      fontFamily="monospace"
                       tickLine={false}
                       axisLine={false}
-                      tickFormatter={(value) => value % 5 === 0 ? `D${value}` : ""}
+                      tickFormatter={(value) => value % 5 === 0 ? `Day ${value}` : ''}
                     />
                     <YAxis 
-                      stroke="oklch(0.45 0 0)" 
-                      fontSize={11}
-                      fontFamily="monospace"
+                      stroke="oklch(0.45 0.02 265)" 
+                      fontSize={12}
                       tickLine={false}
                       axisLine={false}
                       domain={[40, 100]}
                     />
                     <Tooltip 
                       contentStyle={{ 
-                        backgroundColor: "oklch(0.98 0 0)", 
-                        border: "1px solid oklch(0.92 0 0)",
-                        borderRadius: "8px",
-                        fontFamily: "monospace",
-                        fontSize: "12px"
+                        backgroundColor: "white", 
+                        border: "1px solid oklch(0.90 0.01 265)",
+                        borderRadius: "12px",
+                        boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+                        fontSize: "13px"
                       }}
-                      formatter={(value, name) => [value, name === "score" ? "Score" : "Baseline"]}
+                      formatter={(value, name) => [value, name === "score" ? "Productivity" : "Baseline"]}
                       labelFormatter={(label) => `Day ${label}`}
                     />
                     <Line 
                       type="monotone" 
                       dataKey="baseline" 
-                      stroke="oklch(0.45 0 0)" 
-                      strokeWidth={1.5}
-                      strokeDasharray="4 4"
+                      stroke="oklch(0.45 0.02 265)" 
+                      strokeWidth={2}
+                      strokeDasharray="6 6"
                       dot={false}
                     />
                     <Line 
                       type="monotone" 
                       dataKey="score" 
-                      stroke="oklch(0.55 0.15 250)" 
-                      strokeWidth={2}
+                      stroke="oklch(0.52 0.18 265)" 
+                      strokeWidth={2.5}
                       dot={false}
-                      activeDot={{ r: 4, fill: "oklch(0.55 0.15 250)" }}
+                      activeDot={{ r: 6, fill: "oklch(0.52 0.18 265)", stroke: "white", strokeWidth: 2 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -561,80 +560,86 @@ export default function AnalyticsPage() {
       
       {/* Habit Performance Table */}
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
-        <Card className="border-border lg:col-span-2">
-          <CardHeader className="pb-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="text-base font-medium">Habit Performance</CardTitle>
-                <CardDescription className="font-mono text-xs">// habits.metrics.breakdown</CardDescription>
-              </div>
-            </div>
+        <Card className="border-border/60 bg-card shadow-sm lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Habit Performance</CardTitle>
+            <CardDescription>Individual habit completion rates and streaks</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {habitPerformance.map((habit) => (
-                <div key={habit.name} className="group">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-3">
-                      <div 
-                        className="h-2 w-2 rounded-full" 
-                        style={{ backgroundColor: categoryColors[habit.category] }}
-                      />
-                      <span className="text-sm font-medium text-foreground">{habit.name}</span>
-                      <Badge variant="secondary" className="font-mono text-xs capitalize">
-                        {habit.category}
-                      </Badge>
+                <div 
+                  key={habit.name} 
+                  className="flex items-center gap-4 rounded-xl border border-border/60 p-4 transition-all hover:bg-muted/30"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <p className="font-semibold text-foreground truncate">{habit.name}</p>
+                      <TrendIcon trend={habit.trend} />
                     </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-1.5 text-sm">
-                        <Flame className="h-3.5 w-3.5 text-orange-500" />
-                        <span className="font-mono text-foreground">{habit.streak}d</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <TrendIcon trend={habit.trend} />
-                        <span className="font-mono text-sm font-medium text-foreground">{habit.completionRate}%</span>
-                      </div>
-                    </div>
+                    <Badge 
+                      variant="secondary" 
+                      className={cn(
+                        "mt-1 text-xs",
+                        habit.category === "productivity" && "bg-primary/10 text-primary",
+                        habit.category === "fitness" && "bg-emerald-500/10 text-emerald-600",
+                        habit.category === "sleep" && "bg-violet-500/10 text-violet-600",
+                        habit.category === "learning" && "bg-amber-500/10 text-amber-600",
+                        habit.category === "mindfulness" && "bg-cyan-500/10 text-cyan-600",
+                      )}
+                    >
+                      {habit.category}
+                    </Badge>
                   </div>
-                  <Progress value={habit.completionRate} className="h-1.5" />
+                  <div className="text-right">
+                    <p className="text-2xl font-bold text-foreground">{habit.completionRate}%</p>
+                    <p className="text-xs text-muted-foreground">{habit.streak} day streak</p>
+                  </div>
+                  <div className="w-24">
+                    <Progress value={habit.completionRate} className="h-2 bg-muted" />
+                  </div>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
         
-        {/* Category Breakdown */}
-        <Card className="border-border">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-base font-medium">By Category</CardTitle>
-            <CardDescription className="font-mono text-xs">// habits.category.distribution</CardDescription>
+        {/* Category Analysis */}
+        <Card className="border-border/60 bg-card shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-lg font-bold">Category Analysis</CardTitle>
+            <CardDescription>Performance by habit category</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {categoryBreakdown.map((cat) => (
-                <div key={cat.category} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="h-3 w-3 rounded-sm" 
-                      style={{ backgroundColor: categoryColors[cat.category.toLowerCase()] }}
-                    />
-                    <span className="text-sm text-foreground">{cat.category}</span>
+                <div key={cat.category} className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className={cn(
+                        "h-3 w-3 rounded-full bg-gradient-to-r",
+                        cat.color
+                      )} />
+                      <span className="font-medium text-foreground">{cat.category}</span>
+                    </div>
+                    <span className="font-bold text-foreground">{cat.avgCompletion}%</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-muted-foreground">{cat.count} habits</span>
-                    <span className="font-mono text-sm font-medium text-foreground">{cat.avgCompletion}%</span>
-                  </div>
+                  <Progress value={cat.avgCompletion} className="h-2 bg-muted" />
+                  <p className="text-xs text-muted-foreground">{cat.count} habit{cat.count > 1 ? 's' : ''}</p>
                 </div>
               ))}
             </div>
             
-            <div className="mt-6 pt-4 border-t border-border">
-              <div className="flex items-center gap-2 mb-3">
-                <Brain className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-foreground">AI Insight</span>
+            {/* AI Insights */}
+            <div className="mt-6 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent">
+                  <Zap className="h-3.5 w-3.5 text-white" />
+                </div>
+                <span className="text-sm font-semibold text-foreground">AI Insight</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Your <span className="text-foreground font-medium">Mindfulness</span> habits show the highest consistency. Consider adding more habits in this category to leverage your strength.
+                Your <span className="font-medium text-foreground">mindfulness habits</span> show the highest completion rate. Consider applying similar routines to improve your <span className="font-medium text-foreground">sleep category</span>.
               </p>
             </div>
           </CardContent>
