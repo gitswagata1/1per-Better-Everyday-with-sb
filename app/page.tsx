@@ -335,7 +335,7 @@ export default function LandingPage() {
                 <h3 className="mt-5 text-xl font-bold text-foreground">Starter</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Monthly</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">$200</span>
+                  <span className="text-4xl font-bold text-foreground">₹200</span>
                   <span className="text-muted-foreground">/mo</span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -369,7 +369,7 @@ export default function LandingPage() {
                 <h3 className="mt-5 text-xl font-bold text-foreground">Growth</h3>
                 <p className="mt-1 text-sm text-muted-foreground">6 Months</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">$699</span>
+                  <span className="text-4xl font-bold text-foreground">₹699</span>
                   <span className="text-muted-foreground">/6mo</span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -410,7 +410,7 @@ export default function LandingPage() {
                 <h3 className="mt-5 text-xl font-bold text-foreground">Pro</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Annual</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">$9.99</span>
+                  <span className="text-4xl font-bold text-foreground">₹999</span>
                   <span className="text-muted-foreground">/year</span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -445,7 +445,7 @@ export default function LandingPage() {
                 <h3 className="mt-5 text-xl font-bold text-foreground">Lifetime</h3>
                 <p className="mt-1 text-sm text-muted-foreground">One-time</p>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">$2,000</span>
+                  <span className="text-4xl font-bold text-foreground">₹2,000</span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                   Full access to all current and future features with lifetime updates.
