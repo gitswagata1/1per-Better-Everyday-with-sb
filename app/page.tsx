@@ -4,79 +4,124 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowRight, BarChart3, Brain, Calendar, Check, CheckCircle2, Crown, Infinity, Rocket, Sparkles, Target, TrendingUp, Zap } from "lucide-react"
+import { ArrowRight, BarChart3, Brain, Calendar, Check, CheckCircle2, Crown, Infinity, Moon, Rocket, Sparkles, Star, Target, TrendingUp, Zap } from "lucide-react"
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Hero Section - Calm Inspired */}
       <section className="relative overflow-hidden">
-        {/* Gradient Background */}
+        {/* Soft Gradient Background */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute -right-40 top-20 h-[400px] w-[400px] rounded-full bg-accent/10 blur-3xl" />
+          <div className="absolute -left-60 -top-60 h-[700px] w-[700px] rounded-full bg-gradient-to-br from-primary/8 via-accent/5 to-transparent blur-3xl" />
+          <div className="absolute -right-40 top-40 h-[500px] w-[500px] rounded-full bg-gradient-to-bl from-accent/8 via-primary/5 to-transparent blur-3xl" />
+          <div className="absolute -bottom-40 left-1/3 h-[400px] w-[400px] rounded-full bg-gradient-to-t from-success/5 to-transparent blur-3xl" />
         </div>
         
-        <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-24 md:pb-36 md:pt-32">
+        <div className="relative mx-auto max-w-5xl px-6 pb-32 pt-28 md:pb-40 md:pt-36">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary shadow-sm backdrop-blur-sm">
-              <Sparkles className="h-4 w-4" />
-              <span>Behavioural Intelligence Platform</span>
-            </div>
-            
-            <h1 className="text-balance bg-gradient-to-br from-foreground via-foreground to-muted-foreground bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl">
-              Become 1% Better Everyday
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground md:text-6xl lg:text-7xl">
+              We&apos;re here to help you become{" "}
+              <span className="bg-gradient-to-r from-primary via-accent to-success bg-clip-text text-transparent">
+                1% better
+              </span>
+              {" "}everyday.
             </h1>
             
-            <p className="mx-auto mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-              A behavioural intelligence platform for structured self-improvement. Track habits, understand patterns, and build lasting change.
+            <p className="mx-auto mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+              A behavioural intelligence platform for structured self-improvement. Track habits, understand patterns, and build lasting change with research-backed methods.
             </p>
             
             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/login">
-                <Button size="lg" className="h-12 gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 text-base font-semibold shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30">
-                  Start Free Trial
+                <Button size="lg" className="h-14 gap-3 rounded-full bg-primary px-10 text-base font-medium shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/25">
+                  Start Your Journey
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link href="#how-it-works">
-                <Button variant="outline" size="lg" className="h-12 rounded-xl border-border/60 px-8 text-base font-medium backdrop-blur-sm hover:bg-card">
-                  See How It Works
+                <Button variant="ghost" size="lg" className="h-14 rounded-full px-8 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground">
+                  Learn More
                 </Button>
               </Link>
-            </div>
-          </div>
-          
-          {/* Stats */}
-          <div className="mx-auto mt-24 grid max-w-3xl grid-cols-3 gap-4 rounded-2xl border border-border/60 bg-card/80 p-8 shadow-lg shadow-black/5 backdrop-blur-sm">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary">7</p>
-              <p className="mt-2 text-sm font-medium text-muted-foreground">Day Assessment</p>
-            </div>
-            <div className="relative text-center">
-              <div className="absolute inset-y-0 left-0 w-px bg-border" />
-              <div className="absolute inset-y-0 right-0 w-px bg-border" />
-              <p className="text-4xl font-bold text-primary">4</p>
-              <p className="mt-2 text-sm font-medium text-muted-foreground">Focus Areas</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-primary">100%</p>
-              <p className="mt-2 text-sm font-medium text-muted-foreground">Research-Driven</p>
             </div>
           </div>
         </div>
       </section>
       
+      {/* Value Props - Calm Style */}
+      <section className="border-t border-border/40 py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              { 
+                icon: Brain, 
+                title: "Understand yourself.",
+                description: "Get deep insights into your behavioural patterns through our 7-day diagnostic assessment.",
+                color: "from-primary/10 to-primary/5"
+              },
+              { 
+                icon: Target, 
+                title: "Build better habits.",
+                description: "Create lasting habits with personalized recommendations and smart scheduling.",
+                color: "from-accent/10 to-accent/5"
+              },
+              { 
+                icon: TrendingUp, 
+                title: "Track your growth.",
+                description: "Visualize your progress with detailed analytics and celebrate your improvements.",
+                color: "from-success/10 to-success/5"
+              },
+            ].map((item) => (
+              <div key={item.title} className="group text-center">
+                <div className={`mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br ${item.color} transition-transform duration-300 group-hover:scale-105`}>
+                  <item.icon className="h-9 w-9 text-foreground/80" />
+                </div>
+                <h3 className="mt-6 text-xl font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-3 leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Social Proof - Calm Style */}
+      <section className="bg-gradient-to-b from-secondary/50 to-background py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="text-center">
+            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Trusted by mindful individuals</p>
+            <div className="mx-auto mt-6 flex items-center justify-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-6 w-6 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <p className="mt-3 text-lg font-medium text-foreground">Join thousands on their journey to self-improvement</p>
+          </div>
+          
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {[
+              { quote: "The 7-day assessment gave me insights I never had about my daily patterns. Life-changing.", name: "Priya", location: "Mumbai" },
+              { quote: "Finally, a habit tracker that actually understands behaviour science. My productivity has doubled.", name: "Arjun", location: "Bangalore" },
+              { quote: "The behaviour map helped me see connections between sleep and focus I was missing.", name: "Sneha", location: "Delhi" },
+            ].map((testimonial) => (
+              <Card key={testimonial.name} className="border-0 bg-card/80 p-8 shadow-sm backdrop-blur-sm">
+                <p className="leading-relaxed text-muted-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
+                <p className="mt-6 text-sm font-medium text-foreground">{testimonial.name} from {testimonial.location}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Features Section */}
-      <section id="features" className="border-t border-border/60 bg-card/50 py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="features" className="py-28">
+        <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-              Features
-            </span>
-            <h2 className="mt-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
               Everything you need to improve
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -84,92 +129,73 @@ export default function LandingPage() {
             </p>
           </div>
           
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-4 md:grid-cols-2">
             {[
               { icon: Brain, title: "7-Day Diagnostic", description: "Complete behavioural assessment measuring sleep, focus, mood, and screen time patterns." },
               { icon: Target, title: "Habit Tracking", description: "Create custom habits with reminders, track streaks, and measure your consistency over time." },
               { icon: BarChart3, title: "Analytics Dashboard", description: "Visualize your progress with detailed metrics, trends, and behavioural insights." },
               { icon: Zap, title: "Behaviour Map", description: "See correlations between sleep, focus, distraction, and energy levels." },
-              { icon: Calendar, title: "Daily Check-ins", description: "Quick daily assessments to track your mood, energy, and productivity levels." },
-              { icon: TrendingUp, title: "Progress Reports", description: "Weekly and monthly reports showing your improvement trajectory." },
+              { icon: Moon, title: "Daily Check-ins", description: "Quick daily assessments to track your mood, energy, and productivity levels." },
+              { icon: Calendar, title: "Progress Reports", description: "Weekly and monthly reports showing your improvement trajectory." },
             ].map((feature) => (
-              <Card key={feature.title} className="group relative overflow-hidden border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
-                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-2xl transition-all group-hover:scale-150" />
-                <div className="relative">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/10">
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-foreground">{feature.title}</h3>
+              <div key={feature.title} className="group flex gap-5 rounded-2xl border border-border/40 bg-card/50 p-6 transition-all duration-300 hover:bg-card hover:shadow-lg hover:shadow-black/5">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5">
+                  <feature.icon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
                   <p className="mt-2 leading-relaxed text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
       
-      {/* How It Works Section - Enhanced */}
-      <section id="how-it-works" className="border-t border-border/60 py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      {/* How It Works Section */}
+      <section id="how-it-works" className="border-t border-border/40 bg-gradient-to-b from-secondary/30 to-background py-28">
+        <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-              How It Works
-            </span>
-            <h2 className="mt-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Your structured path to growth
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Your path to better habits
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               A science-backed 4-step process designed to create lasting behavioural change.
             </p>
           </div>
           
-          <div className="mt-20 space-y-8">
+          <div className="mt-20 space-y-6">
             {/* Step 1 */}
-            <div className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card p-8 shadow-sm transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-primary/5 to-accent/5 blur-3xl transition-all group-hover:scale-125" />
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-                <div className="flex-shrink-0">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
-                    <span className="text-2xl font-bold text-primary-foreground">01</span>
-                  </div>
+            <div className="group rounded-3xl border border-border/40 bg-card p-8 transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 text-xl font-semibold text-primary-foreground shadow-lg shadow-primary/20">
+                  01
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-foreground">Goal Identification</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">Goal Identification</h3>
                   <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                     Begin by defining a meaningful goal such as improving productivity, academics, health, or skill development.
                   </p>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-xl bg-muted/50 p-4">
-                      <p className="text-sm font-semibold text-foreground">Diagnostic Questions</p>
-                      <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                        <li className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                          <span>Current lifestyle analysis</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                          <span>Daily routines mapping</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                          <span>Current habits assessment</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                          <span>Limitations identification</span>
-                        </li>
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-2xl bg-muted/50 p-5">
+                      <p className="font-medium text-foreground">What we assess</p>
+                      <ul className="mt-4 space-y-3">
+                        {["Current lifestyle", "Daily routines", "Existing habits", "Limitations"].map((item) => (
+                          <li key={item} className="flex items-center gap-3 text-sm text-muted-foreground">
+                            <Check className="h-4 w-4 text-primary" />
+                            {item}
+                          </li>
+                        ))}
                       </ul>
                     </div>
-                    <div className="rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 p-4">
-                      <p className="text-sm font-semibold text-foreground">Output</p>
-                      <div className="mt-3">
-                        <p className="text-sm font-medium text-primary">Ideal Behaviour Profile</p>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          A personalized blueprint showing the habits, skills, and routines required to achieve your goal.
-                        </p>
-                      </div>
+                    <div className="rounded-2xl bg-gradient-to-br from-primary/10 to-accent/5 p-5">
+                      <p className="font-medium text-foreground">Output</p>
+                      <p className="mt-2 text-lg font-semibold text-primary">Ideal Behaviour Profile</p>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        A personalized blueprint showing the habits and routines required to achieve your goal.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -177,83 +203,62 @@ export default function LandingPage() {
             </div>
             
             {/* Step 2 */}
-            <div className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card p-8 shadow-sm transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
-              <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-accent/5 to-primary/5 blur-3xl transition-all group-hover:scale-125" />
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-                <div className="flex-shrink-0">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
-                    <span className="text-2xl font-bold text-primary-foreground">02</span>
-                  </div>
+            <div className="group rounded-3xl border border-border/40 bg-card p-8 transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent/80 text-xl font-semibold text-accent-foreground shadow-lg shadow-accent/20">
+                  02
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-foreground">7-Day Behavioural Analysis</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">7-Day Behavioural Analysis</h3>
                   <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                     For the next 7 days, the system observes your real-life behaviour through structured hourly reminders.
                   </p>
-                  <div className="mt-6">
-                    <p className="text-sm font-semibold text-foreground">What we track:</p>
-                    <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
-                      {[
-                        { label: "Study/Work Hours", icon: "clock" },
-                        { label: "Focus Levels", icon: "target" },
-                        { label: "Sleep Patterns", icon: "moon" },
-                        { label: "Distractions", icon: "alert" },
-                        { label: "Mood & Energy", icon: "heart" },
-                      ].map((item) => (
-                        <div key={item.label} className="flex flex-col items-center rounded-xl bg-muted/50 p-4 text-center">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                            <div className="h-2 w-2 rounded-full bg-primary" />
-                          </div>
-                          <p className="mt-2 text-xs font-medium text-foreground">{item.label}</p>
-                        </div>
+                  <div className="mt-8">
+                    <p className="font-medium text-foreground">What we track</p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {["Study/Work Hours", "Focus Levels", "Sleep Patterns", "Distractions", "Mood & Energy"].map((item) => (
+                        <span key={item} className="rounded-full bg-muted/70 px-4 py-2 text-sm font-medium text-foreground">
+                          {item}
+                        </span>
                       ))}
                     </div>
-                    <p className="mt-6 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 p-4 text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Result:</span> A detailed behavioural dataset that reflects your real lifestyle patterns, creating the foundation for personalized insights.
-                    </p>
+                    <div className="mt-6 rounded-2xl bg-gradient-to-r from-accent/10 to-success/10 p-5">
+                      <p className="text-sm text-muted-foreground">
+                        <span className="font-medium text-foreground">Result:</span> A detailed behavioural dataset that reflects your real lifestyle patterns.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Step 3 */}
-            <div className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card p-8 shadow-sm transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
-              <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-gradient-to-br from-primary/5 to-accent/5 blur-3xl transition-all group-hover:scale-125" />
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-                <div className="flex-shrink-0">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
-                    <span className="text-2xl font-bold text-primary-foreground">03</span>
-                  </div>
+            <div className="group rounded-3xl border border-border/40 bg-card p-8 transition-all hover:shadow-lg hover:shadow-black/5 md:p-10">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-success to-success/80 text-xl font-semibold text-success-foreground shadow-lg shadow-success/20">
+                  03
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-foreground">Behaviour Gap Analysis</h3>
+                  <h3 className="text-2xl font-semibold text-foreground">Behaviour Gap Analysis</h3>
                   <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
-                    After the observation phase, the system compares your real behaviour with the Ideal Behaviour Profile.
+                    After the observation phase, we compare your real behaviour with the Ideal Behaviour Profile.
                   </p>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
                     <div>
-                      <p className="text-sm font-semibold text-foreground">We identify:</p>
-                      <ul className="mt-3 space-y-2">
-                        {[
-                          "Productivity gaps",
-                          "Habit inconsistencies",
-                          "Behavioural inefficiencies",
-                          "Time management issues"
-                        ].map((item) => (
-                          <li key={item} className="flex items-center gap-3 rounded-lg bg-muted/50 p-3 text-sm text-muted-foreground">
-                            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-destructive/10">
-                              <div className="h-1.5 w-1.5 rounded-full bg-destructive" />
-                            </div>
+                      <p className="font-medium text-foreground">We identify</p>
+                      <ul className="mt-4 space-y-2">
+                        {["Productivity gaps", "Habit inconsistencies", "Behavioural inefficiencies", "Time management issues"].map((item) => (
+                          <li key={item} className="rounded-xl bg-muted/50 px-4 py-3 text-sm text-muted-foreground">
                             {item}
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="flex flex-col justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 p-6">
-                      <p className="text-sm font-semibold text-foreground">Output</p>
-                      <p className="mt-2 text-lg font-bold text-primary">Personalized Improvement Strategy</p>
+                    <div className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-success/15 to-primary/10 p-6">
+                      <p className="font-medium text-foreground">Output</p>
+                      <p className="mt-2 text-lg font-semibold text-success">Personalized Strategy</p>
                       <p className="mt-2 text-sm text-muted-foreground">
-                        A tailored action plan designed specifically for your unique behavioural patterns and goals.
+                        A tailored action plan designed for your unique patterns and goals.
                       </p>
                     </div>
                   </div>
@@ -262,45 +267,32 @@ export default function LandingPage() {
             </div>
             
             {/* Step 4 */}
-            <div className="group relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/5 via-card to-accent/5 p-8 shadow-lg shadow-primary/5 transition-all hover:shadow-xl md:p-10">
-              <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-3xl" />
-              <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gradient-to-br from-accent/10 to-primary/10 blur-3xl" />
-              <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-                <div className="flex-shrink-0">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
-                    <span className="text-2xl font-bold text-primary-foreground">04</span>
-                  </div>
+            <div className="group rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/5 via-card to-accent/5 p-8 shadow-lg shadow-primary/5 transition-all hover:shadow-xl md:p-10">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent text-xl font-semibold text-primary-foreground shadow-lg shadow-primary/20">
+                  04
                 </div>
                 <div className="flex-1">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                    <Sparkles className="h-3 w-3" />
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+                    <Sparkles className="h-4 w-4" />
                     Continuous Loop
                   </div>
-                  <h3 className="mt-3 text-2xl font-bold text-foreground">Continuous Improvement System</h3>
+                  <h3 className="mt-4 text-2xl font-semibold text-foreground">Continuous Improvement</h3>
                   <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                     The platform begins an ongoing improvement cycle, adapting to your progress and evolving with your growth.
                   </p>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
                     {[
                       { title: "Habit Recommendations", desc: "Personalized suggestions" },
                       { title: "Smart Scheduling", desc: "Optimized daily planning" },
                       { title: "Activity Tracking", desc: "Real-time monitoring" },
                       { title: "Progress Analytics", desc: "Detailed insights" },
                     ].map((item) => (
-                      <div key={item.title} className="rounded-xl bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-                        <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                        <p className="mt-1 text-xs text-muted-foreground">{item.desc}</p>
+                      <div key={item.title} className="rounded-2xl bg-card/80 p-4 shadow-sm backdrop-blur-sm">
+                        <p className="font-medium text-foreground">{item.title}</p>
+                        <p className="mt-1 text-sm text-muted-foreground">{item.desc}</p>
                       </div>
                     ))}
-                  </div>
-                  <div className="mt-6 flex items-center gap-3 rounded-xl bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <TrendingUp className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">Iterative Feedback Loop</p>
-                      <p className="text-xs text-muted-foreground">Re-evaluates weekly and updates recommendations for continuous growth</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -310,221 +302,150 @@ export default function LandingPage() {
       </section>
       
       {/* Pricing Section */}
-      <section id="pricing" className="border-t border-border/60 bg-card/50 py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section id="pricing" className="border-t border-border/40 py-28">
+        <div className="mx-auto max-w-5xl px-6">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-              Pricing
-            </span>
-            <h2 className="mt-6 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-              Choose your growth plan
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Simple, transparent pricing
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Flexible pricing designed to support your journey at every stage.
+              Choose the plan that fits your journey. Start free, upgrade anytime.
             </p>
           </div>
           
           <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Starter */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-muted/50 to-transparent blur-2xl" />
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-muted">
-                  <Rocket className="h-6 w-6 text-muted-foreground" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-foreground">Starter</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Monthly</p>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">₹200</span>
-                  <span className="text-muted-foreground">/mo</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Best for short-term experimentation and testing the system.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {["7-day assessment", "Basic analytics", "Habit tracking", "Email support"].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Check className="h-4 w-4 text-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+            <Card className="relative border-border/40 p-6">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Starter</h3>
+                <p className="mt-1 text-sm text-muted-foreground">For individuals starting out</p>
               </div>
-              <div className="mt-8">
-                <Link href="/login">
-                  <Button variant="outline" className="w-full rounded-xl">
-                    Get Started
-                  </Button>
-                </Link>
+              <div className="mt-6">
+                <span className="text-4xl font-bold text-foreground">₹200</span>
+                <span className="text-muted-foreground">/mo</span>
               </div>
-            </div>
+              <ul className="mt-6 space-y-3">
+                {["7-day assessment", "3 habit tracking slots", "Basic analytics", "Email support"].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button variant="outline" className="mt-8 w-full rounded-full">
+                Get Started
+              </Button>
+            </Card>
             
             {/* Growth */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-2xl" />
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                  <TrendingUp className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-foreground">Growth</h3>
-                <p className="mt-1 text-sm text-muted-foreground">6 Months</p>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">₹699</span>
-                  <span className="text-muted-foreground">/6mo</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  For structured habit development over a longer period.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {["Everything in Starter", "Advanced analytics", "Behaviour mapping", "Priority support", "Weekly reports"].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Check className="h-4 w-4 text-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+            <Card className="relative border-border/40 p-6">
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Growth</h3>
+                <p className="mt-1 text-sm text-muted-foreground">For committed individuals</p>
               </div>
-              <div className="mt-8">
-                <Link href="/login">
-                  <Button variant="outline" className="w-full rounded-xl">
-                    Get Started
-                  </Button>
-                </Link>
+              <div className="mt-6">
+                <span className="text-4xl font-bold text-foreground">₹699</span>
+                <span className="text-muted-foreground">/6mo</span>
               </div>
-            </div>
+              <ul className="mt-6 space-y-3">
+                {["Everything in Starter", "Unlimited habits", "Behaviour map", "Priority support"].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button variant="outline" className="mt-8 w-full rounded-full">
+                Get Started
+              </Button>
+            </Card>
             
-            {/* Pro - Most Popular */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border-2 border-primary bg-gradient-to-b from-primary/5 to-card p-6 shadow-lg shadow-primary/10 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 blur-2xl" />
-              <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-gradient-to-br from-accent/10 to-transparent blur-2xl" />
-              <div className="absolute -top-px left-1/2 -translate-x-1/2">
-                <span className="inline-flex items-center gap-1.5 rounded-b-lg bg-gradient-to-r from-primary to-accent px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg">
-                  <Sparkles className="h-3 w-3" />
+            {/* Pro - Featured */}
+            <Card className="relative border-2 border-primary/30 bg-gradient-to-b from-primary/5 to-transparent p-6 shadow-lg shadow-primary/10">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="rounded-full bg-primary px-4 py-1 text-xs font-semibold text-primary-foreground">
                   Most Popular
                 </span>
               </div>
-              <div className="relative pt-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
-                  <Crown className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-foreground">Pro</h3>
-                <p className="mt-1 text-sm text-muted-foreground">Annual</p>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">₹999</span>
-                  <span className="text-muted-foreground">/year</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  The most popular plan for long-term productivity improvement.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {["Everything in Growth", "AI-powered insights", "Custom integrations", "1-on-1 coaching", "API access", "Team features"].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
-                      <Check className="h-4 w-4 text-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              <div>
+                <h3 className="text-lg font-semibold text-foreground">Pro</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Best value for growth</p>
               </div>
-              <div className="mt-8">
-                <Link href="/login">
-                  <Button className="w-full rounded-xl bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/25">
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+              <div className="mt-6">
+                <span className="text-4xl font-bold text-foreground">₹999</span>
+                <span className="text-muted-foreground">/year</span>
               </div>
-            </div>
+              <ul className="mt-6 space-y-3">
+                {["Everything in Growth", "Advanced analytics", "AI insights", "Weekly reports", "1-on-1 coaching call"].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button className="mt-8 w-full rounded-full bg-primary shadow-lg shadow-primary/20">
+                Get Started
+              </Button>
+            </Card>
             
             {/* Lifetime */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-accent/10 to-transparent blur-2xl" />
-              <div className="relative">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-                  <Infinity className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="mt-5 text-xl font-bold text-foreground">Lifetime</h3>
-                <p className="mt-1 text-sm text-muted-foreground">One-time</p>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-foreground">₹2,000</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Full access to all current and future features with lifetime updates.
-                </p>
-                <ul className="mt-6 space-y-3">
-                  {["Everything in Pro", "Lifetime updates", "Early access features", "Dedicated support", "No recurring fees"].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Check className="h-4 w-4 text-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+            <Card className="relative border-border/40 p-6">
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg font-semibold text-foreground">Lifetime</h3>
+                <Crown className="h-4 w-4 text-amber-500" />
               </div>
-              <div className="mt-8">
-                <Link href="/login">
-                  <Button variant="outline" className="w-full rounded-xl">
-                    Get Lifetime Access
-                  </Button>
-                </Link>
+              <p className="mt-1 text-sm text-muted-foreground">One-time purchase</p>
+              <div className="mt-6">
+                <span className="text-4xl font-bold text-foreground">₹2,000</span>
               </div>
-            </div>
+              <ul className="mt-6 space-y-3">
+                {["Everything in Pro", "Lifetime access", "All future features", "VIP support"].map((feature) => (
+                  <li key={feature} className="flex items-center gap-3 text-sm text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-primary" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button variant="outline" className="mt-8 w-full rounded-full">
+                Get Started
+              </Button>
+            </Card>
           </div>
         </div>
       </section>
       
       {/* CTA Section */}
-      <section className="border-t border-border/60 py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-primary/5 via-card to-accent/5 p-12 shadow-xl md:p-16">
-            {/* Background decorations */}
-            <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-            
-            <div className="relative text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-                Ready to become 1% better?
-              </h2>
-              <p className="mx-auto mt-4 max-w-lg text-lg text-muted-foreground">
-                Join thousands of people using behavioural intelligence to build lasting habits and improve their lives.
-              </p>
-              <div className="mt-10">
-                <Link href="/login">
-                  <Button size="lg" className="h-12 gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 text-base font-semibold shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30">
-                    Get Started Free
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-medium text-muted-foreground">
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  Free 14-day trial
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  No credit card required
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  Cancel anytime
-                </span>
-              </div>
-            </div>
+      <section className="border-t border-border/40 bg-gradient-to-b from-secondary/50 to-background py-28">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Ready to become 1% better?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+            Start your journey today. Join thousands who are building better habits and transforming their lives.
+          </p>
+          <div className="mt-10">
+            <Link href="/login">
+              <Button size="lg" className="h-14 gap-3 rounded-full bg-primary px-10 text-base font-medium shadow-lg shadow-primary/20">
+                Start Free Trial
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
       
       {/* Footer */}
-      <footer className="border-t border-border/60 py-12">
-        <div className="mx-auto max-w-6xl px-6">
+      <footer className="border-t border-border/40 py-12">
+        <div className="mx-auto max-w-5xl px-6">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-lg shadow-primary/25">
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
                 <span className="text-sm font-bold text-primary-foreground">1%</span>
               </div>
-              <span className="text-xl font-bold tracking-tight text-foreground">Better</span>
+              <span className="font-semibold text-foreground">1% Better Everyday</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Built for continuous improvement.
+              Built with care for mindful individuals.
             </p>
           </div>
         </div>
