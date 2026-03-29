@@ -6,14 +6,11 @@
 # 🧠 Overview
 
 1% Better Everyday is a cloud-native platform designed to improve productivity through structured behavioural analysis.
-Unlike conventional habit trackers that only log actions, this system focuses on:
+Unlike conventional habit trackers that only log actions, this system focuses on Understanding behaviour before improving it.
 
-Understanding behaviour before improving it.
-
-❗ Problem
+# ❗ Problem
 
 Most productivity tools:
-
 Track actions but ignore behavioural patterns
 Provide generic recommendations
 Lack personalization
@@ -21,36 +18,31 @@ Do not adapt to real-life routines
 
 Result: Users stop using them within a short period.
 
-💡 Approach
+# 💡 Approach
 
 This platform follows a diagnostic-first model.
-
 Instead of immediately tracking habits, it:
-
 Analyses real user behaviour
 Identifies gaps and inefficiencies
 Generates personalized improvement strategies
-🔄 Workflow
-1. Goal Definition
 
+# 🔄 Workflow
+
+1. Goal Definition
 User defines a meaningful goal.
 → System builds an Ideal Behaviour Model
 
 2. Behaviour Capture (7 Days)
-
 The platform records:
-
 Study/work duration
 Sleep patterns
 Focus levels
 Screen usage
 Mood and energy
+
 3. Behaviour Gap Analysis
-
 Compares:
-
 Ideal Behaviour vs Actual Behaviour
-
 → Identifies inefficiencies, inconsistencies, and habit gaps
 
 4. Continuous Improvement
@@ -58,16 +50,19 @@ Habit tracking
 Smart recommendations
 Progress analytics
 Iterative feedback loop
-🏗️ Architecture
+
+# 🏗️ Architecture
 User → React Frontend → API Gateway → AWS Lambda → DynamoDB
-☁️ Cloud Services
+
+# ☁️ Cloud Services
 Service	Purpose
 Cognito	Authentication
 API Gateway	API management
 Lambda	Backend execution
 DynamoDB	Data storage
 CloudWatch	Monitoring & logging
-⚙️ Technology Stack
+
+# ⚙️ Technology Stack
 
 Frontend
 React.js
@@ -82,7 +77,7 @@ DynamoDB
 Cloud
 AWS Serverless Architecture
 
-✨ Features
+# ✨ Features
 🔐 Secure authentication (AWS Cognito)
 🧪 Behavioural assessment engine (7-day diagnostic)
 🎯 Goal and habit management
@@ -90,15 +85,18 @@ AWS Serverless Architecture
 📈 Analytics dashboard with progress insights
 ⚡ Scalable serverless backend
 🗄️ Data Model
+
 Table	Description
 Users	User profile data
 Assessments	Behavioural analysis records
 Habits	Habit configurations
 DailyLogs	Daily activity tracking
-🚀 Live & Repository
+
+# 🚀 Live & Repository
 Live Application: https://v0-1perbettereveryday.vercel.app
 Source Code: https://github.com/gitswagata1/1per-Better-Everyday-with-sb
-🧬 What Sets This Apart
+
+# 🧬 What Sets This Apart
 Traditional Tools	This Platform
 Track habits	Analyse behaviour
 Generic suggestions	Personalized insights
@@ -110,16 +108,14 @@ Limited analytics	Behaviour-driven analysis
 📱 Mobile application
 📊 Advanced analytics (Life Score)
 💳 SaaS deployment model
-👨‍💻 Author
 
+# 👨‍💻
 Swagata Banerjee
-B.Tech Computer Science and Engineering
+B.Tech CSE
 
 📄 License
+This project is intended for Research and exploratory use.
 
-This project is intended for academic and exploratory use.
-
-💬 Closing Note
-
+# 💬 Closing Note
 Improvement is not about doing more.
-It is about understanding what you do — and why.
+It is about understanding what you do and why.
