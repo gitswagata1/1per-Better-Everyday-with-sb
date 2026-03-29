@@ -1,150 +1,125 @@
-# 1% Better Everyday 🚀
+# 1% Better Everyday
 
 ## A Behavioural Intelligence Platform for Continuous Growth
-<p align="center"> 
-  <b>Diagnose → Analyze → Improve → Repeat</b><br/> 
-  <i>Not just habit tracking. Real behavioural transformation.</i> 
-</p> 
+<p align="center"> <b>Diagnose → Analyze → Improve → Repeat</b><br/> <i>Not just habit tracking. Real behavioural transformation.</i> </p> <p align="center"> <a href="https://v0-1perbettereveryday.vercel.app"> <img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white"> </a> <a href="https://github.com/gitswagata1/1per-Better-Everyday-with-sb"> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a> <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black"> <img src="https://img.shields.io/badge/Serverless-7B61FF?style=for-the-badge"> </p>
 
-<p align="center"> 
-  <a href="https://v0-1perbettereveryday.vercel.app">
-    <img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white">
-  </a> 
-  <a href="https://github.com/gitswagata1/1per-Better-Everyday-with-sb">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
-  </a> 
-  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black"> 
-  <img src="https://img.shields.io/badge/Serverless-7B61FF?style=for-the-badge"> 
-</p>
+# 🧠 Overview
 
-## 🧠 What is this?
+1% Better Everyday is a cloud-native platform designed to improve productivity through structured behavioural analysis.
+Unlike conventional habit trackers that only log actions, this system focuses on:
 
-1% Better Everyday is a cloud-native behavioural intelligence system that helps users improve productivity through data-driven self-analysis.
+Understanding behaviour before improving it.
 
-Unlike traditional productivity apps that only track habits, this platform:
-⚡ Understands your behaviour first — then tells you how to improve it.
-❗ Why This Exists
+❗ Problem
 
-Most productivity tools fail because they:
-❌ Track actions but ignore behaviour
-❌ Provide generic advice
-❌ Lack personalization
-❌ Don’t adapt to real-life patterns
+Most productivity tools:
 
-Result: Users quit within weeks.
-💡 Our Approach
-🔍 Diagnosis Before Improvement
+Track actions but ignore behavioural patterns
+Provide generic recommendations
+Lack personalization
+Do not adapt to real-life routines
 
-Instead of saying “track your habits”, we ask:
-Why are your habits failing?
-What is your actual lifestyle pattern?
-Where is the behavioural gap?
+Result: Users stop using them within a short period.
 
-# 🔄 Product Workflow
+💡 Approach
 
-## 🥇 Step 1: Goal Definition
-User defines a meaningful goal
+This platform follows a diagnostic-first model.
+
+Instead of immediately tracking habits, it:
+
+Analyses real user behaviour
+Identifies gaps and inefficiencies
+Generates personalized improvement strategies
+🔄 Workflow
+1. Goal Definition
+
+User defines a meaningful goal.
 → System builds an Ideal Behaviour Model
 
-## 📊 Step 2: 7-Day Behaviour Capture
-Tracks real-life data:
-Study/work hours
-Sleep cycles
+2. Behaviour Capture (7 Days)
+
+The platform records:
+
+Study/work duration
+Sleep patterns
 Focus levels
-Screen time
-Mood & energy
+Screen usage
+Mood and energy
+3. Behaviour Gap Analysis
 
-## ⚖️ Step 3: Behaviour Gap Analysis
+Compares:
 
-System compares:
 Ideal Behaviour vs Actual Behaviour
-→ Identifies inefficiencies, inconsistencies, and gaps
 
-## 🔁 Step 4: Continuous Improvement Loop
+→ Identifies inefficiencies, inconsistencies, and habit gaps
+
+4. Continuous Improvement
 Habit tracking
 Smart recommendations
 Progress analytics
-Iterative feedback
-
-## 🏗️ System Architecture
+Iterative feedback loop
+🏗️ Architecture
 User → React Frontend → API Gateway → AWS Lambda → DynamoDB
-
-## ☁️ Cloud Stack
+☁️ Cloud Services
 Service	Purpose
-Cognito	Authentication & security
-API Gateway	REST API management
-Lambda	Serverless compute
-DynamoDB	NoSQL data storage
+Cognito	Authentication
+API Gateway	API management
+Lambda	Backend execution
+DynamoDB	Data storage
 CloudWatch	Monitoring & logging
+⚙️ Technology Stack
 
-## ⚙️ Tech Stack
+Frontend
+React.js
 
-Frontend:
-React.js (Component-based UI)
-Backend:
+Backend
 AWS Lambda (Python)
-REST APIs (API Gateway)
-Database:
-DynamoDB (NoSQL, high scalability)
-Cloud:
+API Gateway (REST APIs)
+
+Database
+DynamoDB
+
+Cloud
 AWS Serverless Architecture
 
-## ✨ Core Features
-🔐 Secure Authentication
-AWS Cognito with JWT-based access
-🧪 Behavioural Assessment Engine
-Structured 7-day diagnostic system
-🎯 Goal & Habit System
-Define and track high-impact habits
-📅 Daily Consistency Tracker
-Simple check-in system for discipline
-📈 Analytics Dashboard
-Streaks, trends, and progress visualization
-⚡ Serverless Performance
-Auto-scaling, low latency, cost-efficient
-
-## 🗄️ Data Model
+✨ Features
+🔐 Secure authentication (AWS Cognito)
+🧪 Behavioural assessment engine (7-day diagnostic)
+🎯 Goal and habit management
+📅 Daily consistency tracking
+📈 Analytics dashboard with progress insights
+⚡ Scalable serverless backend
+🗄️ Data Model
 Table	Description
 Users	User profile data
-Assessments	Behavioural analysis data
-Habits	Habit definitions & configurations
+Assessments	Behavioural analysis records
+Habits	Habit configurations
 DailyLogs	Daily activity tracking
-
-## 🚀 Live & Code
-🌐 Live: https://v0-1perbettereveryday.vercel.app
-📦 Repository: https://github.com/gitswagata1/1per-Better-Everyday-with-sb
-
-## 🧬 What Makes This Different?
-Traditional Apps ❌	This Platform ✅
-Track habits	Diagnose behaviour
+🚀 Live & Repository
+Live Application: https://v0-1perbettereveryday.vercel.app
+Source Code: https://github.com/gitswagata1/1per-Better-Everyday-with-sb
+🧬 What Sets This Apart
+Traditional Tools	This Platform
+Track habits	Analyse behaviour
 Generic suggestions	Personalized insights
-Static systems	Adaptive feedback loop
-Surface-level analytics	Deep behavioural intelligence
-🔮 Future Roadmap
-🤖 AI-powered behavioural recommendation engine
-🔔 Smart notifications (AWS SNS)
-📱 Mobile application (React Native / Flutter)
-📊 Life Score (composite productivity index)
-💳 SaaS monetization model
-📈 Potential Impact
-🎓 Student productivity optimization
-🧠 Mental discipline & self-awareness
-📊 Data-driven personal growth
-🚀 Scalable SaaS product opportunity
+Static workflows	Adaptive system
+Limited analytics	Behaviour-driven analysis
+🔮 Future Work
+🤖 AI-based recommendation engine
+🔔 Smart notifications
+📱 Mobile application
+📊 Advanced analytics (Life Score)
+💳 SaaS deployment model
+👨‍💻 Author
 
-# 👨‍💻 Author
 Swagata Banerjee
-B.Tech CSE (SCOPE)
+B.Tech Computer Science and Engineering
 
-⭐ Show Your Support
-If you found this interesting:
-⭐ Star the repository
-🍴 Fork and build on it
-🧠 Share feedback / ideas
+📄 License
 
-🧾 License
-This project is for research & Startup purposes.
+This project is intended for academic and exploratory use.
 
-## 💬 Final Thought
-“You don’t improve by tracking habits.
-You improve by understanding behaviour.”
+💬 Closing Note
+
+Improvement is not about doing more.
+It is about understanding what you do — and why.
