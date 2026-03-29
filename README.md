@@ -1,8 +1,23 @@
 # 1% Better Everyday 🚀
 
 ## A Behavioural Intelligence Platform for Continuous Growth
-<p align="center"> <b>Diagnose → Analyze → Improve → Repeat</b><br/> <i>Not just habit tracking. Real behavioural transformation.</i> </p> <p align="center"> <a href="https://v0-1perbettereveryday.vercel.app"><img src="https://img.shields.io/badge/Live-Demo-green?style=for-the-badge"></a> <a href="https://github.com/gitswagata1/1per-Better-Everyday-with-sb"><img src="https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge"></a> <img src="https://img.shields.io/badge/Built%20With-AWS-orange?style=for-the-badge"> <img src="https://img.shields.io/badge/Architecture-Serverless-blue?style=for-the-badge"> </p>
-🧠 What is this?
+<p align="center"> 
+  <b>Diagnose → Analyze → Improve → Repeat</b><br/> 
+  <i>Not just habit tracking. Real behavioural transformation.</i> 
+</p> 
+
+<p align="center"> 
+  <a href="https://v0-1perbettereveryday.vercel.app">
+    <img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white">
+  </a> 
+  <a href="https://github.com/gitswagata1/1per-Better-Everyday-with-sb">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a> 
+  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black"> 
+  <img src="https://img.shields.io/badge/Serverless-7B61FF?style=for-the-badge"> 
+</p>
+
+## 🧠 What is this?
 
 1% Better Everyday is a cloud-native behavioural intelligence system that helps users improve productivity through data-driven self-analysis.
 
