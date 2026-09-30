@@ -1,121 +1,79 @@
 # 1% Better Everyday
 
-## A Behavioural Intelligence Platform for Continuous Growth
-<p align="center"> <b>Diagnose → Analyze → Improve → Repeat</b><br/> <i>Not just habit tracking. Real behavioural transformation.</i> </p> <p align="center"> <a href="https://v0-1perbettereveryday.vercel.app"> <img src="https://img.shields.io/badge/Live%20Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white"> </a> <a href="https://github.com/gitswagata1/1per-Better-Everyday-with-sb"> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a> <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black"> <img src="https://img.shields.io/badge/Serverless-7B61FF?style=for-the-badge"> </p>
+> A behavioural intelligence platform for continuous growth. Diagnose, analyze, improve, repeat.
 
-# 🧠 Overview
+[![Live Demo](https://img.shields.io/badge/Live_Demo-00C853?style=for-the-badge&logo=vercel&logoColor=white)](https://v0-1perbettereveryday.vercel.app)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS_Serverless-FF9900?style=flat-square&logo=amazonaws&logoColor=white)
+![DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?style=flat-square&logo=amazondynamodb&logoColor=white)
 
-1% Better Everyday is a cloud-native platform designed to improve productivity through structured behavioural analysis.
-Unlike conventional habit trackers that only log actions, this system focuses on Understanding behaviour before improving it.
+## The Problem
 
-# ❗ Problem
+Most productivity tools track actions but ignore behavioural patterns, offer generic advice, lack personalization, and don't adapt to real routines. Users abandon them quickly.
 
-Most productivity tools:
-Track actions but ignore behavioural patterns
-Provide generic recommendations
-Lack personalization
-Do not adapt to real-life routines
+## How It Works
 
-Result: Users stop using them within a short period.
+```
+Goal Definition → Behaviour Capture (7 days) → Gap Analysis → Continuous Improvement
+```
 
-# 💡 Approach
+1. **Goal Definition** — user sets a goal, system builds an Ideal Behaviour Model
+2. **Behaviour Capture** — records study/work duration, sleep, focus, screen usage, mood, energy over 7 days
+3. **Gap Analysis** — compares ideal vs. actual behaviour to find inefficiencies and habit gaps
+4. **Continuous Improvement** — smart recommendations, progress analytics, iterative feedback
 
-This platform follows a diagnostic-first model.
-Instead of immediately tracking habits, it:
-Analyses real user behaviour
-Identifies gaps and inefficiencies
-Generates personalized improvement strategies
+## Architecture
 
-# 🔄 Workflow
+```
+User → Next.js Frontend → API Gateway → AWS Lambda → DynamoDB
+                                ↓
+                          AWS Cognito (Auth)
+                          CloudWatch (Monitoring)
+```
 
-1. Goal Definition
-User defines a meaningful goal.
-→ System builds an Ideal Behaviour Model
+## Tech Stack
 
-2. Behaviour Capture (7 Days)
-The platform records:
-Study/work duration
-Sleep patterns
-Focus levels
-Screen usage
-Mood and energy
+| Layer | Technology |
+|:------|:-----------|
+| Frontend | Next.js, TypeScript, Tailwind CSS |
+| Backend | AWS Lambda (Python), API Gateway (REST) |
+| Database | DynamoDB (4 tables: Users, Assessments, Habits, DailyLogs) |
+| Auth | AWS Cognito |
+| Monitoring | CloudWatch |
+| Deployment | Vercel (frontend), AWS (backend) |
 
-3. Behaviour Gap Analysis
-Compares:
-Ideal Behaviour vs Actual Behaviour
-→ Identifies inefficiencies, inconsistencies, and habit gaps
+## Features
 
-4. Continuous Improvement
-Habit tracking
-Smart recommendations
-Progress analytics
-Iterative feedback loop
+- Secure authentication via AWS Cognito
+- 7-day behavioural diagnostic assessment engine
+- Goal and habit management with daily consistency tracking
+- Analytics dashboard with progress insights
+- Scalable serverless backend — zero cold-start optimization
 
-# 🏗️ Architecture
-User → React Frontend → API Gateway → AWS Lambda → DynamoDB
+## Getting Started
 
-# ☁️ Cloud Services
-Service	Purpose
-Cognito	Authentication
-API Gateway	API management
-Lambda	Backend execution
-DynamoDB	Data storage
-CloudWatch	Monitoring & logging
+```bash
+git clone https://github.com/gitswagata1/1per-Better-Everyday-with-sb.git
+cd 1per-Better-Everyday-with-sb
+pnpm install
+pnpm dev
+```
 
-# ⚙️ Technology Stack
+Open [localhost:3000](http://localhost:3000).
 
-Frontend
-React.js
+## Roadmap
 
-Backend
-AWS Lambda (Python)
-API Gateway (REST APIs)
+- [ ] AI-based recommendation engine
+- [ ] Smart notifications
+- [ ] Mobile application
+- [ ] Advanced analytics (Life Score)
+- [ ] SaaS deployment model
 
-Database
-DynamoDB
+## License
 
-Cloud
-AWS Serverless Architecture
+Research and exploratory use.
 
-# ✨ Features
-🔐 Secure authentication (AWS Cognito)
-🧪 Behavioural assessment engine (7-day diagnostic)
-🎯 Goal and habit management
-📅 Daily consistency tracking
-📈 Analytics dashboard with progress insights
-⚡ Scalable serverless backend
-🗄️ Data Model
+---
 
-Table	Description
-Users	User profile data
-Assessments	Behavioural analysis records
-Habits	Habit configurations
-DailyLogs	Daily activity tracking
-
-# 🚀 Live & Repository
-Live Application: https://v0-1perbettereveryday.vercel.app
-Source Code: https://github.com/gitswagata1/1per-Better-Everyday-with-sb
-
-# 🧬 What Sets This Apart
-Traditional Tools	This Platform
-Track habits	Analyse behaviour
-Generic suggestions	Personalized insights
-Static workflows	Adaptive system
-Limited analytics	Behaviour-driven analysis
-🔮 Future Work
-🤖 AI-based recommendation engine
-🔔 Smart notifications
-📱 Mobile application
-📊 Advanced analytics (Life Score)
-💳 SaaS deployment model
-
-# 👨‍💻
-Swagata Banerjee
-B.Tech CSE
-
-📄 License
-This project is intended for Research and exploratory use.
-
-# 💬 Closing Note
-Improvement is not about doing more.
-It is about understanding what you do and why.
+Built by [Swagata Banerjee](https://github.com/gitswagata1)
