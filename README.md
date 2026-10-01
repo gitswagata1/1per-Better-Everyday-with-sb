@@ -53,10 +53,31 @@ User → Next.js Frontend → API Gateway → AWS Lambda → DynamoDB
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18+
+- pnpm (`npm install -g pnpm`)
+- AWS account (for backend services — Cognito, Lambda, DynamoDB)
+
+### Run locally
+
 ```bash
 git clone https://github.com/gitswagata1/1per-Better-Everyday-with-sb.git
 cd 1per-Better-Everyday-with-sb
 pnpm install
+```
+
+Create a `.env.local` with your AWS credentials:
+
+```bash
+NEXT_PUBLIC_COGNITO_USER_POOL_ID=your-pool-id
+NEXT_PUBLIC_COGNITO_CLIENT_ID=your-client-id
+NEXT_PUBLIC_API_GATEWAY_URL=your-api-url
+```
+
+Then start the dev server:
+
+```bash
 pnpm dev
 ```
 
